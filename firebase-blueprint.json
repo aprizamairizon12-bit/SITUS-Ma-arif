@@ -1,0 +1,525 @@
+{
+  "entities": {
+    "Student": {
+      "title": "Student",
+      "description": "Data peserta didik SMA Ma'arif 05 Padang Ratu",
+      "type": "object",
+      "properties": {
+        "nis": { "type": "string" },
+        "nisn": { "type": "string" },
+        "name": { "type": "string" },
+        "gender": { "type": "string" },
+        "birthPlace": { "type": "string" },
+        "birthDate": { "type": "string" },
+        "religion": { "type": "string" },
+        "address": { "type": "string" },
+        "phone": { "type": "string" },
+        "fatherName": { "type": "string" },
+        "motherName": { "type": "string" },
+        "parentJob": { "type": "string" },
+        "parentAddress": { "type": "string" },
+        "parentPhone": { "type": "string" },
+        "entryYear": { "type": "string" },
+        "className": { "type": "string" },
+        "status": { "type": "string" },
+        "photoUrl": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["name", "nis", "className"]
+    },
+    "Teacher": {
+      "title": "Teacher",
+      "description": "Data guru dan pengajar",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "nip": { "type": "string" },
+        "nuptk": { "type": "string" },
+        "nik": { "type": "string" },
+        "gender": { "type": "string" },
+        "birthPlace": { "type": "string" },
+        "birthDate": { "type": "string" },
+        "lastEducation": { "type": "string" },
+        "major": { "type": "string" },
+        "position": { "type": "string" },
+        "subject": { "type": "string" },
+        "employeeStatus": { "type": "string" },
+        "address": { "type": "string" },
+        "phone": { "type": "string" },
+        "email": { "type": "string" },
+        "photoUrl": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["name"]
+    },
+    "Staff": {
+      "title": "Staff",
+      "description": "Data tenaga kependidikan dan staf administrasi",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "nip": { "type": "string" },
+        "nik": { "type": "string" },
+        "gender": { "type": "string" },
+        "position": { "type": "string" },
+        "employeeStatus": { "type": "string" },
+        "phone": { "type": "string" },
+        "email": { "type": "string" },
+        "address": { "type": "string" },
+        "photoUrl": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["name", "position"]
+    },
+    "ClassRoom": {
+      "title": "ClassRoom",
+      "description": "Data kelas dan rombongan belajar",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "academicYear": { "type": "string" },
+        "homeroomTeacher": { "type": "string" },
+        "room": { "type": "string" },
+        "studentCount": { "type": "number" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["name"]
+    },
+    "Alumni": {
+      "title": "Alumni",
+      "description": "Data alumni sekolah",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "nis": { "type": "string" },
+        "nisn": { "type": "string" },
+        "graduationYear": { "type": "string" },
+        "phone": { "type": "string" },
+        "email": { "type": "string" },
+        "currentActivity": { "type": "string" },
+        "address": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["name", "graduationYear"]
+    },
+    "IncomingLetter": {
+      "title": "IncomingLetter",
+      "description": "Surat masuk ke sekolah",
+      "type": "object",
+      "properties": {
+        "letterNumber": { "type": "string" },
+        "letterDate": { "type": "string" },
+        "receivedDate": { "type": "string" },
+        "sender": { "type": "string" },
+        "subject": { "type": "string" },
+        "disposition": { "type": "string" },
+        "fileUrl": { "type": "string" },
+        "fileName": { "type": "string" },
+        "notes": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["letterNumber", "sender", "subject"]
+    },
+    "OutgoingLetter": {
+      "title": "OutgoingLetter",
+      "description": "Surat keluar dari sekolah",
+      "type": "object",
+      "properties": {
+        "letterNumber": { "type": "string" },
+        "letterDate": { "type": "string" },
+        "recipient": { "type": "string" },
+        "subject": { "type": "string" },
+        "signatory": { "type": "string" },
+        "fileUrl": { "type": "string" },
+        "fileName": { "type": "string" },
+        "notes": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["letterNumber", "recipient", "subject"]
+    },
+    "CreatedLetter": {
+      "title": "CreatedLetter",
+      "description": "Dokumen surat yang dibuat dan diedit melalui editor",
+      "type": "object",
+      "properties": {
+        "letterType": { "type": "string" },
+        "letterNumber": { "type": "string" },
+        "title": { "type": "string" },
+        "date": { "type": "string" },
+        "contentHtml": { "type": "string" },
+        "signeeName": { "type": "string" },
+        "signeeNip": { "type": "string" },
+        "signeeRole": { "type": "string" },
+        "paperSize": { "type": "string" },
+        "orientation": { "type": "string" },
+        "hasKop": { "type": "boolean" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["title", "letterType", "contentHtml"]
+    },
+    "StudentInvoice": {
+      "title": "StudentInvoice",
+      "description": "Surat tagihan biaya sekolah untuk siswa",
+      "type": "object",
+      "properties": {
+        "studentId": { "type": "string" },
+        "studentName": { "type": "string" },
+        "nis": { "type": "string" },
+        "className": { "type": "string" },
+        "category": { "type": "string" },
+        "amount": { "type": "number" },
+        "notes": { "type": "string" },
+        "dueDate": { "type": "string" },
+        "invoiceDate": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["studentName", "category", "amount"]
+    },
+    "ArchiveDocument": {
+      "title": "ArchiveDocument",
+      "description": "Arsip dokumen digital sekolah",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "documentNumber": { "type": "string" },
+        "documentDate": { "type": "string" },
+        "category": { "type": "string" },
+        "origin": { "type": "string" },
+        "destination": { "type": "string" },
+        "description": { "type": "string" },
+        "fileUrl": { "type": "string" },
+        "fileName": { "type": "string" },
+        "fileType": { "type": "string" },
+        "fileSize": { "type": "number" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["title", "category"]
+    },
+    "SchoolSetting": {
+      "title": "SchoolSetting",
+      "description": "Pengaturan sekolah, kop surat, dan profil institusi",
+      "type": "object",
+      "properties": {
+        "schoolName": { "type": "string" },
+        "npsn": { "type": "string" },
+        "address": { "type": "string" },
+        "postalCode": { "type": "string" },
+        "phone": { "type": "string" },
+        "email": { "type": "string" },
+        "website": { "type": "string" },
+        "headmasterName": { "type": "string" },
+        "headmasterNip": { "type": "string" },
+        "tuHeadName": { "type": "string" },
+        "tuHeadNip": { "type": "string" },
+        "academicYear": { "type": "string" },
+        "activeSemester": { "type": "string" },
+        "letterNumberFormat": { "type": "string" },
+        "logoLeftUrl": { "type": "string" },
+        "logoRightUrl": { "type": "string" },
+        "logoLeftWidth": { "type": "number" },
+        "logoRightWidth": { "type": "number" },
+        "kopFont": { "type": "string" },
+        "kopBorderWidth": { "type": "number" },
+        "showUniformBilling": { "type": "boolean" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["schoolName"]
+    },
+    "AcademicYear": {
+      "title": "AcademicYear",
+      "description": "Manajemen tahun pelajaran aktif dan riwayat tahun pelajaran",
+      "type": "object",
+      "properties": {
+        "startYear": { "type": "number" },
+        "endYear": { "type": "number" },
+        "name": { "type": "string" },
+        "activeSemester": { "type": "string" },
+        "startDate": { "type": "string" },
+        "endDate": { "type": "string" },
+        "status": { "type": "string" },
+        "notes": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["startYear", "endYear", "name", "activeSemester", "status"]
+    },
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Profil akun pengguna dan hak akses",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "role": { "type": "string" },
+        "isActive": { "type": "boolean" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["email", "role"]
+    },
+    "ActivityLog": {
+      "title": "ActivityLog",
+      "description": "Log aktivitas pengguna sistem tata usaha",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "userName": { "type": "string" },
+        "action": { "type": "string" },
+        "module": { "type": "string" },
+        "details": { "type": "string" },
+        "timestamp": { "type": "string" }
+      },
+      "required": ["action", "module", "timestamp"]
+    },
+    "Rombel": {
+      "title": "Rombel",
+      "description": "Data rombongan belajar sekolah",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "gradeLevel": { "type": "string" },
+        "academicYear": { "type": "string" },
+        "semester": { "type": "string" },
+        "homeroomTeacherId": { "type": "string" },
+        "homeroomTeacherName": { "type": "string" },
+        "room": { "type": "string" },
+        "capacity": { "type": "number" },
+        "studentCount": { "type": "number" },
+        "maleCount": { "type": "number" },
+        "femaleCount": { "type": "number" },
+        "curriculum": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["name", "gradeLevel", "academicYear"]
+    },
+    "RombelMember": {
+      "title": "RombelMember",
+      "description": "Anggota siswa di dalam rombel",
+      "type": "object",
+      "properties": {
+        "rombelId": { "type": "string" },
+        "rombelName": { "type": "string" },
+        "academicYear": { "type": "string" },
+        "semester": { "type": "string" },
+        "studentId": { "type": "string" },
+        "nis": { "type": "string" },
+        "nisn": { "type": "string" },
+        "studentName": { "type": "string" },
+        "gender": { "type": "string" },
+        "joinedAt": { "type": "string" }
+      },
+      "required": ["rombelId", "studentId", "nis", "studentName"]
+    },
+    "ClassAttendance": {
+      "title": "ClassAttendance",
+      "description": "Data absensi harian kelas",
+      "type": "object",
+      "properties": {
+        "rombelId": { "type": "string" },
+        "rombelName": { "type": "string" },
+        "gradeLevel": { "type": "string" },
+        "academicYear": { "type": "string" },
+        "semester": { "type": "string" },
+        "date": { "type": "string" },
+        "studentId": { "type": "string" },
+        "nis": { "type": "string" },
+        "studentName": { "type": "string" },
+        "gender": { "type": "string" },
+        "status": { "type": "string" },
+        "recordedBy": { "type": "string" },
+        "recordedByName": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["rombelId", "date", "studentId", "status"]
+    },
+    "TeacherBook": {
+      "title": "TeacherBook",
+      "description": "Buku pegangan dan administrasi guru",
+      "type": "object",
+      "properties": {
+        "teacherId": { "type": "string" },
+        "teacherName": { "type": "string" },
+        "teacherNip": { "type": "string" },
+        "subject": { "type": "string" },
+        "gradeLevel": { "type": "string" },
+        "rombelId": { "type": "string" },
+        "rombelName": { "type": "string" },
+        "academicYear": { "type": "string" },
+        "semester": { "type": "string" },
+        "kkm": { "type": "number" },
+        "formula": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["teacherId", "subject", "rombelId"]
+    },
+    "GradeAssessment": {
+      "title": "GradeAssessment",
+      "description": "Kolom komponen penilaian guru",
+      "type": "object",
+      "properties": {
+        "teacherBookId": { "type": "string" },
+        "code": { "type": "string" },
+        "name": { "type": "string" },
+        "type": { "type": "string" },
+        "date": { "type": "string" },
+        "weight": { "type": "number" },
+        "maxScore": { "type": "number" },
+        "order": { "type": "number" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["teacherBookId", "code", "name"]
+    },
+    "GradeRecord": {
+      "title": "GradeRecord",
+      "description": "Nilai per siswa per asesmen",
+      "type": "object",
+      "properties": {
+        "teacherBookId": { "type": "string" },
+        "assessmentId": { "type": "string" },
+        "studentId": { "type": "string" },
+        "nis": { "type": "string" },
+        "studentName": { "type": "string" },
+        "gender": { "type": "string" },
+        "score": { "type": "number" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["teacherBookId", "assessmentId", "studentId", "score"]
+    },
+    "TeachingJournal": {
+      "title": "TeachingJournal",
+      "description": "Jurnal pembelajaran harian guru",
+      "type": "object",
+      "properties": {
+        "teacherBookId": { "type": "string" },
+        "teacherId": { "type": "string" },
+        "teacherName": { "type": "string" },
+        "subject": { "type": "string" },
+        "rombelName": { "type": "string" },
+        "date": { "type": "string" },
+        "dayName": { "type": "string" },
+        "periodHours": { "type": "string" },
+        "topic": { "type": "string" },
+        "learningObjective": { "type": "string" },
+        "activities": { "type": "string" },
+        "method": { "type": "string" },
+        "attendancePresent": { "type": "number" },
+        "attendanceSick": { "type": "number" },
+        "attendancePermit": { "type": "number" },
+        "attendanceAbsent": { "type": "number" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["teacherBookId", "date", "topic"]
+    },
+    "LearningObjective": {
+      "title": "LearningObjective",
+      "description": "Capaian dan Tujuan Pembelajaran CP/TP",
+      "type": "object",
+      "properties": {
+        "teacherBookId": { "type": "string" },
+        "element": { "type": "string" },
+        "cp": { "type": "string" },
+        "tp": { "type": "string" },
+        "materials": { "type": "string" },
+        "assessmentTechnique": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["teacherBookId", "cp", "tp"]
+    }
+  },
+  "firestore": {
+    "/students/{studentId}": {
+      "schema": "Student",
+      "description": "Koleksi data peserta didik"
+    },
+    "/teachers/{teacherId}": {
+      "schema": "Teacher",
+      "description": "Koleksi data guru dan pengajar"
+    },
+    "/staff/{staffId}": {
+      "schema": "Staff",
+      "description": "Koleksi data staf tata usaha dan karyawan"
+    },
+    "/classes/{classId}": {
+      "schema": "ClassRoom",
+      "description": "Koleksi data rombongan belajar / kelas"
+    },
+    "/alumni/{alumniId}": {
+      "schema": "Alumni",
+      "description": "Koleksi data alumni"
+    },
+    "/incomingLetters/{letterId}": {
+      "schema": "IncomingLetter",
+      "description": "Koleksi surat masuk"
+    },
+    "/outgoingLetters/{letterId}": {
+      "schema": "OutgoingLetter",
+      "description": "Koleksi surat keluar"
+    },
+    "/createdLetters/{letterId}": {
+      "schema": "CreatedLetter",
+      "description": "Koleksi surat yang dibuat sistem"
+    },
+    "/studentInvoices/{invoiceId}": {
+      "schema": "StudentInvoice",
+      "description": "Koleksi surat tagihan siswa"
+    },
+    "/archives/{archiveId}": {
+      "schema": "ArchiveDocument",
+      "description": "Koleksi arsip digital"
+    },
+    "/settings/{settingId}": {
+      "schema": "SchoolSetting",
+      "description": "Pengaturan sekolah dan kop surat"
+    },
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Profil pengguna dan hak akses"
+    },
+    "/activityLogs/{logId}": {
+      "schema": "ActivityLog",
+      "description": "Catatan aktivitas sistem"
+    },
+    "/rombels/{rombelId}": {
+      "schema": "Rombel",
+      "description": "Koleksi data rombongan belajar"
+    },
+    "/rombel_members/{memberId}": {
+      "schema": "RombelMember",
+      "description": "Koleksi anggota rombel (relasi siswa)"
+    },
+    "/class_attendance/{attendanceId}": {
+      "schema": "ClassAttendance",
+      "description": "Koleksi presensi harian kelas"
+    },
+    "/teacher_books/{bookId}": {
+      "schema": "TeacherBook",
+      "description": "Koleksi buku pegangan guru"
+    },
+    "/grade_assessments/{assessmentId}": {
+      "schema": "GradeAssessment",
+      "description": "Koleksi item/komponen penilaian guru"
+    },
+    "/grade_records/{recordId}": {
+      "schema": "GradeRecord",
+      "description": "Koleksi nilai per siswa per asesmen"
+    },
+    "/teaching_journals/{journalId}": {
+      "schema": "TeachingJournal",
+      "description": "Koleksi jurnal mengajar guru"
+    },
+    "/learning_objectives/{objectiveId}": {
+      "schema": "LearningObjective",
+      "description": "Koleksi capaian dan tujuan pembelajaran CP/TP"
+    },
+    "/academic_years/{yearId}": {
+      "schema": "AcademicYear",
+      "description": "Koleksi data tahun pelajaran dan semester aktif"
+    }
+  }
+}

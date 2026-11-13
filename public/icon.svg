@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="50%" stop-color="#1e3a8a" />
+      <stop offset="100%" stop-color="#172554" />
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fde047" />
+      <stop offset="50%" stop-color="#eab308" />
+      <stop offset="100%" stop-color="#ca8a04" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <!-- Background with rounded squircle for PWA safe zone -->
+  <rect width="512" height="512" rx="112" fill="url(#bg)" />
+  
+  <!-- Outer Gold Ring -->
+  <circle cx="256" cy="230" r="140" fill="none" stroke="url(#gold)" stroke-width="6" opacity="0.8" stroke-dasharray="8 6"/>
+  <circle cx="256" cy="230" r="130" fill="#1e3a8a" fill-opacity="0.4" stroke="url(#gold)" stroke-width="3"/>
+  
+  <!-- School Crest / Education Book & Quill Icon -->
+  <g filter="url(#shadow)">
+    <!-- Open Book -->
+    <path d="M190 260 C220 250, 245 258, 256 266 C267 258, 292 250, 322 260 L322 180 C292 170, 267 178, 256 186 C245 178, 220 170, 190 180 Z" fill="#ffffff" />
+    <!-- Book Spine & Pages Lines -->
+    <path d="M256 186 L256 266" stroke="#1e3a8a" stroke-width="4" stroke-linecap="round"/>
+    <path d="M205 200 C225 194, 240 198, 248 202" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M205 218 C225 212, 240 216, 248 220" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M205 236 C225 230, 240 234, 248 238" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M307 200 C287 194, 272 198, 264 202" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M307 218 C287 212, 272 216, 264 220" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M307 236 C287 230, 272 234, 264 238" stroke="#94a3b8" stroke-width="2.5" stroke-linecap="round"/>
+    
+    <!-- Quill / Pen -->
+    <path d="M290 140 Q315 125 325 105 Q315 135 295 155 Z" fill="url(#gold)"/>
+    <circle cx="256" cy="150" r="14" fill="url(#gold)"/>
+    <!-- 9 Stars of Ma'arif / NU Heritage Inspiration -->
+    <circle cx="256" cy="120" r="6" fill="#fef08a"/>
+    <circle cx="225" cy="128" r="4.5" fill="#fef08a"/>
+    <circle cx="287" cy="128" r="4.5" fill="#fef08a"/>
+    <circle cx="202" cy="150" r="4.5" fill="#fef08a"/>
+    <circle cx="310" cy="150" r="4.5" fill="#fef08a"/>
+  </g>
+  
+  <!-- Text SITUS -->
+  <text x="256" y="405" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="900" font-size="52" fill="#ffffff" text-anchor="middle" letter-spacing="6">SITUS</text>
+  
+  <!-- Subtitle -->
+  <text x="256" y="440" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="700" font-size="20" fill="url(#gold)" text-anchor="middle" letter-spacing="2">SMA MA'ARIF 05 PADANG RATU</text>
+  <text x="256" y="465" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="500" font-size="14" fill="#93c5fd" text-anchor="middle" letter-spacing="1">SISTEM INFORMASI TATA USAHA</text>
+</svg>

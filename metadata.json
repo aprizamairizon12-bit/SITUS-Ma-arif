@@ -1,0 +1,6 @@
+{
+  "name": "SITUS SMA Ma'arif 05 Padang Ratu",
+  "description": "Sistem Informasi Tata Usaha Sekolah Terpadu (SITUS) SMA Ma’arif 05 Padang Ratu untuk pengelolaan data siswa, guru, staf, pembuatan surat resmi, pengarsipan digital, dan pencetakan dokumen.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

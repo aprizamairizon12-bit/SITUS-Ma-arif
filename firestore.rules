@@ -1,0 +1,169 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isSuperAdmin() {
+      return isSignedIn() && (
+        request.auth.token.email == "aprizamairizon12@gmail.com" ||
+        request.auth.uid == "superadmin" ||
+        (exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+         get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'super_admin')
+      );
+    }
+
+    function isStaffOrAdmin() {
+      return isSignedIn() && (
+        isSuperAdmin() ||
+        (exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+         get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isActive == true)
+      );
+    }
+
+    // Default deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Test connection doc
+    match /test/{docId} {
+      allow read, write: if isSignedIn();
+    }
+
+    // Users collection
+    match /users/{userId} {
+      allow read: if isSignedIn();
+      allow write: if isSuperAdmin() || (isSignedIn() && request.auth.uid == userId);
+    }
+
+    // Settings
+    match /settings/{settingId} {
+      allow read: if isSignedIn();
+      allow write: if isStaffOrAdmin();
+    }
+
+    // Students
+    match /students/{studentId} {
+      allow read: if isSignedIn();
+      allow write: if isStaffOrAdmin();
+    }
+
+    // Teachers
+    match /teachers/{teacherId} {
+      allow read: if isSignedIn();
+      allow write: if isStaffOrAdmin();
+    }
+
+    // Staff
+    match /staff/{staffId} {
+      allow read: if isSignedIn();
+      allow write: if isStaffOrAdmin();
+    }
+
+    // Classes
+    match /classes/{classId} {
+      allow read: if isSignedIn();
+      allow write: if isStaffOrAdmin();
+    }
+
+    // Alumni
+    match /alumni/{alumniId} {
+      allow read: if isSignedIn();
+      allow write: if isStaffOrAdmin();
+    }
+
+    // Incoming Letters
+    match /incomingLetters/{letterId} {
+      allow read: if isSignedIn();
+      allow write: if isStaffOrAdmin();
+    }
+
+    // Outgoing Letters
+    match /outgoingLetters/{letterId} {
+      allow read: if isSignedIn();
+      allow write: if isStaffOrAdmin();
+    }
+
+    // Created Letters
+    match /createdLetters/{letterId} {
+      allow read: if isSignedIn();
+      allow write: if isStaffOrAdmin();
+    }
+
+    // Student Invoices
+    match /studentInvoices/{invoiceId} {
+      allow read: if isSignedIn();
+      allow write: if isStaffOrAdmin();
+    }
+
+    // Digital Archives
+    match /archives/{archiveId} {
+      allow read: if isSignedIn();
+      allow write: if isStaffOrAdmin();
+    }
+
+    // Activity Logs
+    match /activityLogs/{logId} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn();
+      allow update, delete: if isSuperAdmin();
+    }
+
+    // Rombels
+    match /rombels/{rombelId} {
+      allow read: if isSignedIn();
+      allow write: if isStaffOrAdmin();
+    }
+
+    // Rombel Members
+    match /rombel_members/{memberId} {
+      allow read: if isSignedIn();
+      allow write: if isStaffOrAdmin();
+    }
+
+    // Class Attendance
+    match /class_attendance/{attendanceId} {
+      allow read: if isSignedIn();
+      allow write: if isStaffOrAdmin();
+    }
+
+    // Teacher Books
+    match /teacher_books/{bookId} {
+      allow read: if isSignedIn();
+      allow write: if isStaffOrAdmin();
+    }
+
+    // Grade Assessments
+    match /grade_assessments/{assessmentId} {
+      allow read: if isSignedIn();
+      allow write: if isStaffOrAdmin();
+    }
+
+    // Grade Records
+    match /grade_records/{recordId} {
+      allow read: if isSignedIn();
+      allow write: if isStaffOrAdmin();
+    }
+
+    // Teaching Journals
+    match /teaching_journals/{journalId} {
+      allow read: if isSignedIn();
+      allow write: if isStaffOrAdmin();
+    }
+
+    // Learning Objectives
+    match /learning_objectives/{objectiveId} {
+      allow read: if isSignedIn();
+      allow write: if isStaffOrAdmin();
+    }
+
+    // Academic Years
+    match /academic_years/{yearId} {
+      allow read: if isSignedIn();
+      allow write: if isStaffOrAdmin();
+    }
+  }
+}

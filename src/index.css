@@ -1,0 +1,165 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --print-margin-top: 25mm;
+    --print-margin-right: 20mm;
+    --print-margin-bottom: 25mm;
+    --print-margin-left: 30mm;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Paper styles for Word-like document editor & print previews */
+.paper-a4 {
+  width: 210mm;
+  min-height: 297mm;
+}
+.paper-f4 {
+  width: 215mm;
+  min-height: 330mm;
+}
+.paper-letter {
+  width: 216mm;
+  min-height: 279mm;
+}
+.paper-a4-landscape {
+  width: 297mm;
+  min-height: 210mm;
+}
+.paper-f4-landscape {
+  width: 330mm;
+  min-height: 215mm;
+}
+.paper-letter-landscape {
+  width: 279mm;
+  min-height: 216mm;
+}
+
+/* Subtle glowing aura & glassmorphism utilities */
+.glow-emerald {
+  box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.25);
+}
+.glow-blue {
+  box-shadow: 0 0 25px -5px rgba(59, 130, 246, 0.25);
+}
+.glow-amber {
+  box-shadow: 0 0 25px -5px rgba(245, 158, 11, 0.25);
+}
+.glow-purple {
+  box-shadow: 0 0 25px -5px rgba(168, 85, 247, 0.25);
+}
+
+/* Tiptap content styling */
+.tiptap-editor-content {
+  outline: none;
+}
+.tiptap-editor-content p {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+.tiptap-editor-content h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+.tiptap-editor-content h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+.tiptap-editor-content table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+.tiptap-editor-content th,
+.tiptap-editor-content td {
+  border: 1px solid #1e293b;
+  padding: 6px 10px;
+  text-align: left;
+}
+.tiptap-editor-content th {
+  background-color: #f1f5f9;
+  font-weight: 600;
+}
+.tiptap-editor-content ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.tiptap-editor-content ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Print Media Styles */
+@media print {
+  @page {
+    margin: var(--print-margin-top, 25mm) var(--print-margin-right, 20mm) var(--print-margin-bottom, 25mm) var(--print-margin-left, 30mm) !important;
+    size: auto;
+  }
+  
+  html, body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    font-family: 'Times New Roman', Times, serif !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* Hide all dashboard chrome, sidebar, navigation, action buttons */
+  .no-print,
+  nav,
+  aside,
+  header,
+  .sidebar,
+  .app-header,
+  .print-hide,
+  button:not(.print-include) {
+    display: none !important;
+  }
+  
+  /* Expand printable container */
+  .printable-area {
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block !important;
+    page-break-after: auto;
+  }
+
+  .page-break {
+    page-break-after: always;
+    break-after: page;
+  }
+}
